@@ -1,0 +1,79 @@
+[
+    {
+        "_id": "6582fca834999cd92f3b9b1e",
+        "index": 2,
+        "guid": "aa0a5166-0c20-422c-86cd-9f6ca96b94c6",
+        "isActive": false,
+        "balance": "$3474.29",
+        "picture": "http://placehold.it/32x32",
+        "age": 29,
+        "eyeColor": "brown",
+        "name": "Irma Faulkner",
+        "gender": "female",
+        "company": "BITENDREX",
+        "email": "irmafaulkner@bitendrex.com",
+        "phone": "+1 (973) 591-3473",
+        "address": "786 Woodrow Court, Lodoga, Georgia, 7553",
+        "about": "Reprehenderit ipsum exercitation est nisi minim ipsum consectetur occaecat. Labore do deserunt enim fugiat commodo magna. Officia sit duis eiusmod adipisicing eiusmod sunt aliqua dolor aliquip sunt nostrud ut. Aliqua mollit reprehenderit esse Lorem proident proident. Culpa proident anim reprehenderit voluptate quis sit cupidatat. Cillum reprehenderit velit ipsum officia. Voluptate ea mollit commodo dolore eu ullamco aliquip et Lorem sit consectetur.\r\n",
+        "registered": "2022-05-24T07:17:06 -02:00",
+        "latitude": 4.862796,
+        "longitude": 42.250587,
+        "friends": [
+          {
+            "id": 0,
+            "name": "Jenifer Pace"
+          },
+          {
+            "id": 1,
+            "name": "Copeland Avila"
+          },
+          {
+            "id": 2,
+            "name": "Eddie Randolph"
+          }
+        ],
+        "greeting": "Hello, Irma Faulkner! You have 9 unread messages.",
+        "favoriteFruit": "banana"
+      }
+  ]
+
+  --------------------
+  Generate at https://json-generator.com
+
+  [
+    '{{repeat(5, 7)}}',
+    {
+      _id: '{{objectId()}}',
+      index: '{{index()}}',
+      guid: '{{guid()}}',
+      isActive: '{{bool()}}',
+      balance: '{{floating(1000, 4000, 2, "$00.00")}}',
+      picture: 'http://placehold.it/32x32',
+      age: '{{integer(20, 40)}}',
+      eyeColor: '{{random("blue", "brown", "green")}}',
+      name: '{{firstName()}} {{surname()}}',
+      gender: '{{gender()}}',
+      company: '{{company().toUpperCase()}}',
+      email: '{{email()}}',
+      phone: '+1 {{phone()}}',
+      address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+      about: '{{lorem(1, "paragraphs")}}',
+      registered: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+      latitude: '{{floating(-90.000001, 90)}}',
+      longitude: '{{floating(-180.000001, 180)}}',
+      friends: [
+        '{{repeat(3)}}',
+        {
+          id: '{{index()}}',
+          name: '{{firstName()}} {{surname()}}'
+        }
+      ],
+      greeting: function (tags) {
+        return 'Hello, ' + this.name + '! You have ' + tags.integer(1, 10) + ' unread messages.';
+      },
+      favoriteFruit: function (tags) {
+        var fruits = ['apple', 'banana', 'strawberry'];
+        return fruits[tags.integer(0, fruits.length - 1)];
+      }
+    }
+  ]
